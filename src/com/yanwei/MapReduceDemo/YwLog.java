@@ -76,7 +76,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 			Configuration conf = new Configuration();//获得Configuration配置 Configuration: core-default.xml, core-site.xml    
 			String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();//获得输入参数 [hdfs://localhost:9000/user/dat/input, hdfs://localhost:9000/user/dat/output]    
 	        if(otherArgs.length != 2){//判断输入参数个数，不为两个异常退出    
-	            System.err.println("Usage:wordcount <in> <out>");    
+	            System.err.println("Usage:<in> <out>");    
 	            System.exit(2);    
 	        }    
 	        Job job = new Job(conf,"log analysis");    

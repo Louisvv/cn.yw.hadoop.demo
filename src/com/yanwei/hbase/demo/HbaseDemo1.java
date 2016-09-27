@@ -24,6 +24,7 @@ public class HbaseDemo1 {
 		
 		Put put=new Put(Bytes.toBytes("row1"));//指定一行来创建一个put
 		
+		
 		put.add(Bytes.toBytes("conlum1"), Bytes.toBytes("qual1"), 
 				Bytes.toBytes("val1"));//向put中添加一个名为:conlum1:qual1的列
 		put.add(Bytes.toBytes("conlum1"), Bytes.toBytes("qual2"),

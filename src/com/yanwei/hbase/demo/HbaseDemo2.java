@@ -20,7 +20,13 @@ import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;       
 import org.apache.hadoop.hbase.client.Scan;       
 import org.apache.hadoop.hbase.client.Put;       
+import org.apache.hadoop.hbase.filter.BinaryComparator;
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+import org.apache.hadoop.hbase.filter.Filter;
+import org.apache.hadoop.hbase.filter.RowFilter;
+import org.apache.hadoop.hbase.thrift.generated.Hbase.Processor.scannerClose;
 import org.apache.hadoop.hbase.util.Bytes;       
+import org.apache.hadoop.hive.ql.parse.HiveParser.tableName_return;
         
 public class HbaseDemo2 {         
            
@@ -29,7 +35,9 @@ public class HbaseDemo2 {
       * ≥ı ºªØ≈‰÷√  
      */    
      static {    
-         conf = HBaseConfiguration.create();    
+         conf = HBaseConfiguration.create(); 
+         conf.set("hbase.zookeeper.quorum", "192.168.47.204");
+		 conf.set("hbase.zookeeper.property.clientport", "2181");
      }    
          
     /**    
@@ -133,31 +141,45 @@ public class HbaseDemo2 {
            
     public static void  main (String [] agrs) {       
         try {       
-            String tablename = "scores";       
-            String[] familys = {"grade", "course"};       
-            HbaseDemo2.creatTable(tablename, familys);       
+            String tableName = "texttable";       
+            String[] familys = {"info", "data"};       
+            //HbaseDemo2.creatTable(tablename, familys);       
                     
             //add record zkb       
-            HbaseDemo2.addRecord(tablename,"zkb","grade","","5");       
-            HbaseDemo2.addRecord(tablename,"zkb","course","","90");       
-            HbaseDemo2.addRecord(tablename,"zkb","course","math","97");       
-            HbaseDemo2.addRecord(tablename,"zkb","course","art","87");       
+//            HbaseDemo2.addRecord(tablename,"row-3","info","name","yw");       
+//            HbaseDemo2.addRecord(tablename,"row-3","info","age","23");       
+//            HbaseDemo2.addRecord(tablename,"row-3","info","higt","180");       
+//            HbaseDemo2.addRecord(tablename,"row-3","data","sex","nan");       
             //add record  baoniu       
-            HbaseDemo2.addRecord(tablename,"baoniu","grade","","4");       
-            HbaseDemo2.addRecord(tablename,"baoniu","course","math","89");       
+//            HbaseDemo2.addRecord(tablename,"baoniu","grade","","4");       
+//            HbaseDemo2.addRecord(tablename,"baoniu","course","math","89");       
+                   
+//            
+//            System.out.println("===========get one record========");       
+//            HbaseDemo2.getOneRecord(tableName, "row-1");       
+           
+            System.currentTimeMillis();
+            
+            /* π˝¬À∆˜
+            HTable table=new HTable(conf, tableName);
+            Scan scan =new Scan();
+            Filter filter1=new  RowFilter(CompareOp.LESS_OR_EQUAL,
+            		new BinaryComparator(Bytes.toBytes("row-2")));
+            scan.setFilter(filter1);
+            ResultScanner rs=table.getScanner(scan);
+            for (Result result : rs) {
+				System.out.println(result);
+			}
+            rs.close();
+            */
+            
+            
+//            System.out.println("===========show all record========");       
+//            HbaseDemo2.getAllRecord(tablename);       
                     
-            System.out.println("===========get one record========");       
-            HbaseDemo2.getOneRecord(tablename, "zkb");       
+         
                     
-            System.out.println("===========show all record========");       
-            HbaseDemo2.getAllRecord(tablename);       
-                    
-            System.out.println("===========del one record========");       
-            HbaseDemo2.delRecord(tablename, "baoniu");       
-            HbaseDemo2.getAllRecord(tablename);       
-                    
-            System.out.println("===========show all record========");       
-            HbaseDemo2.getAllRecord(tablename);       
+            
         } catch (Exception e) {       
             e.printStackTrace();       
         }       

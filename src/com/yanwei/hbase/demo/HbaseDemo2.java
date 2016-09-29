@@ -138,6 +138,24 @@ public class HbaseDemo2 {
             e.printStackTrace();       
         }       
     }       
+    /**
+     * 获取某列数据的多个版本
+     */
+    public static void getResultByVersion(String tableName, String rowKey,  
+            String familyName, String columnName) throws IOException {  
+        HTable table = new HTable(conf, Bytes.toBytes(tableName));  
+        Get get = new Get(Bytes.toBytes(rowKey));  
+        get.addColumn(Bytes.toBytes(familyName), Bytes.toBytes(columnName));  
+        get.setMaxVersions(5);  
+        Result result = table.get(get);  
+        for (KeyValue kv : result.list()) {  
+            System.out.println("family:" + Bytes.toString(kv.getFamily()));  
+            System.out  
+                    .println("qualifier:" + Bytes.toString(kv.getQualifier()));  
+            System.out.println("value:" + Bytes.toString(kv.getValue()));  
+            System.out.println("Timestamp:" + kv.getTimestamp());  
+            System.out.println("-------------------------------------------");  
+        }  
            
     public static void  main (String [] agrs) {       
         try {       

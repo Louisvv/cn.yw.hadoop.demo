@@ -156,7 +156,7 @@ public class HbaseDemo2 {
             System.out.println("Timestamp:" + kv.getTimestamp());  
             System.out.println("-------------------------------------------");  
         }  
-           
+    }
     public static void  main (String [] agrs) {       
         try {       
             String tableName = "texttable";       

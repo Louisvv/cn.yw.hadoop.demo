@@ -1,4 +1,4 @@
-package org.taiji.hive.udf.demo;
+package com.yanwei.hive_udf.demo;
 
 import java.util.ArrayList;
 import java.util.List;

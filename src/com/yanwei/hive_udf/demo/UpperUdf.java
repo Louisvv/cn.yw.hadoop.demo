@@ -1,4 +1,4 @@
-package org.taiji.hive.udf.demo;
+package com.yanwei.hive_udf.demo;
 
 import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.io.Text;

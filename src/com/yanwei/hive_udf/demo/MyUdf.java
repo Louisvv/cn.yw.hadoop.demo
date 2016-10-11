@@ -1,4 +1,4 @@
-package org.taiji.hive.udf.demo;
+package com.yanwei.hive_udf.demo;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -149,15 +149,16 @@ public class HbaseDemo3 {
 //						HbaseDemo3.addData(tableName, "row-1", "info", "sex", "nan");
 //						HbaseDemo3.addData(tableName, "row-1", "data", "high", "181");
 						//第二个人
-						HbaseDemo3.addData(tableName, "row-2", "info", "name", "why");
+						/*HbaseDemo3.addData(tableName, "row-2", "info", "name", "why");
 						HbaseDemo3.addData(tableName, "row-2", "info", "age", "23");
 						HbaseDemo3.addData(tableName, "row-2", "info", "sex", "nv");
-						HbaseDemo3.addData(tableName, "row-2", "data", "high", "140");
+						HbaseDemo3.addData(tableName, "row-2", "data", "high", "140");*/
 						
-					   /* System.out.println("**************获取一条数据*************");
+					   System.out.println("**************获取一条数据*************");
 		                HbaseDemo3.getRow(tableName, "row-1");
-		                HbaseDemo3.getRow(tableName, "row-2");*/
-						HbaseDemo3.getAll(tableName);
+		                HbaseDemo3.getRow(tableName, "row-2");
+						HbaseDemo3.getAll("text");
+				
 						
 					}
 				} catch (Exception e) { 

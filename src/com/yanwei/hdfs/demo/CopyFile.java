@@ -9,6 +9,8 @@ public class CopyFile {
     public static void main(String[] args) throws Exception {
         Configuration conf=new Configuration();
         FileSystem hdfs=FileSystem.get(conf);
+        
+//        FileSystem hdfs1=FileSystem.get(uri, conf, user)
        
         //本地文件
         Path src =new Path("E:\\M01");

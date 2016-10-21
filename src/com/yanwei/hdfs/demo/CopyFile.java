@@ -18,6 +18,7 @@ public class CopyFile {
         Path dst =new Path("/M01");
        
         hdfs.copyFromLocalFile(src, dst);
+        //hdfs.copyFromLocalFile(src, dst);
         System.out.println("Upload to"+conf.get("fs.default.name"));
        
         FileStatus files[]=hdfs.listStatus(dst);

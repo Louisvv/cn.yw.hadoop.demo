@@ -13,7 +13,7 @@ public class CopyFile {
 //        FileSystem hdfs1=FileSystem.get(uri, conf, user)
        
         //本地文件
-        Path src =new Path("E:\\M01");
+        Path src =new Path("C:\\Users\\yanwei\\Desktop");
         //HDFS位置
         Path dst =new Path("/M01");
        
